@@ -6,14 +6,14 @@ export class CreateSettings1618922412944 implements MigrationInterface {
         await queryRunner.createTable(
             new Table({
                 name: "settings",
-                columns:[
+                columns: [
                     {
                         name: "id",
                         type: "uuid",
                         isPrimary: true
                     },
                     {
-                        name: "userName",
+                        name: "username",
                         type: "varchar"
                     },
                     {
@@ -29,15 +29,14 @@ export class CreateSettings1618922412944 implements MigrationInterface {
                     {
                         name: "created_at",
                         type: "timestamp",
-                        default: "now()",
-                    },
+                        default: "now()"
+                    }
                 ],
             })
-        );
+        )
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-
         await queryRunner.dropTable("settings")
     }
 
