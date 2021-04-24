@@ -18,6 +18,27 @@ class SettingsController {
             })
         }
     }
+
+    async findByUsername(request: Request, response: Response){
+        const {username} = request.params
+
+        const settingsService = new SettingsService();
+
+        const settins = await settingsService.findByUsername(username)
+
+        return response.json(settins)
+    }
+
+    async update(request: Request, response: Response){
+        const {username} = request.params
+        const {chat} = request.body
+
+        const settingsService = new SettingsService();
+
+        const settins = await settingsService.update(username, chat)
+
+        return response.json(settins)
+    }
 }
 
 export { SettingsController }

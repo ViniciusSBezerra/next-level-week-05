@@ -18,7 +18,6 @@ class MessageService{
    
     async create({admin_id, text, user_id}: IMessageCreate){
         
-
         const message = this.messageRepository.create({
             admin_id,
             text,
@@ -31,8 +30,6 @@ class MessageService{
     }
 
     async listByUser(user_id: string){
-
-        
 
         const list = await this.messageRepository.find({
             where: {user_id},
